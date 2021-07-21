@@ -11,7 +11,10 @@ class MyboardStack extends cdk.Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
     new s3.Bucket(this, 'myboard-test',{
-      versioned:true
+      bucketName:"myboard-test",
+      versioned:true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true
     })
     // The code that defines your stack goes here
   }
